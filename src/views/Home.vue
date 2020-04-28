@@ -6,7 +6,6 @@
 </template>
 
 <script>
-// @ is an alias to /src
 import HelloWorld from "@/components/HelloWorld";
 import * as apis from "@/request/api"
 export default {
@@ -15,8 +14,9 @@ export default {
     HelloWorld
   },
   methods: {
-    testApi(){
-      apis.testApi()
+    async testApi(){
+      const result = await apis.testApi()
+      console.log(result, 222222)
     }
   }
 };
