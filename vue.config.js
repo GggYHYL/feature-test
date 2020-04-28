@@ -1,8 +1,13 @@
+const port = 8080
 module.exports = {
     publicPath: '/',
     lintOnSave: false,
     outputDir: `dist-${process.env.NODE_ENV}`,
     devServer: {
+        port,
+        public: `0.0.0.0:${port}`, //Network
+        hot: true,
+        disableHostCheck: true,
         proxy: {
             [process.env.VUE_APP_BASIC_API]: {
                 target: 'http://gzstoreeme.ctwenhuayun.cn',

@@ -20,10 +20,6 @@ axios.interceptors.response.use(
     error => {            
         if (error.response.status) {            
             switch (error.response.status) {                
-                // 401: 未登录
-                case 401:     
-                    console.log(error.response.status);               
-                    break;
                 // 404请求不存在
                 case 404:
                     console.log(error.response.status);     
