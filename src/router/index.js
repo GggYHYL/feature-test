@@ -5,8 +5,16 @@ Vue.use(VueRouter);
 const routes = [
   {
     path: "/",
-    name: "home",
-    component: () => import("../views/home.vue")
+    name: "app",
+    component: () => import("@/App"),
+    // 子路由对应的父组件中必须有 <router-view /> 才能显示子组件
+    children:[
+      {
+        path: "sort",
+        name: "sort",
+        component: () => import("@/views/sort"),
+      }
+    ]
   },
 ];
 
