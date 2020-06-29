@@ -13,7 +13,13 @@ const routes = [
         path: "sort",
         name: "sort",
         component: () => import("@/views/sort"),
-      }
+      },
+      {
+        path: "compress-img",
+        name: "compress-img",
+        component: () => import("@/views/compress-img"),
+      },
+      
     ]
   },
 ];
