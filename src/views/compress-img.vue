@@ -19,7 +19,7 @@ export default {
             const _height = this.$refs.img.height
             // 置顶缩放宽高
             const _maxWidth = maxWidth
-            const _maxHeight = maxWidth
+            const _maxHeight = maxHeight
             // 设置图片大小
             let _setWidthSize = 0
             let _setHeightSize = 0

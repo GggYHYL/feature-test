@@ -19,6 +19,11 @@ const routes = [
         name: "compress-img",
         component: () => import("@/views/compress-img"),
       },
+      {
+        path: "login",
+        name: "login",
+        component: () => import("@/views/login"),
+      },
       
     ]
   },
