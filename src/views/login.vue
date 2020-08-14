@@ -1,5 +1,7 @@
 <template>
-    <div>登录页面</div>
+    <div class="login-container">
+        <el-button type="primary">登录</el-button>
+    </div>
 </template>
 <script>
 export default {
