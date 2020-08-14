@@ -1,5 +1,5 @@
 import {post} from "./http"
 
-export const testApi = () => {
-    return post('wechatShop/getShopUserModel.do', { shopPath: 'gz', modelCode: 'pc0006' })
+export const getUserInfo = ({ userName, userPwd }) => {
+    return post('login', { userName, userPwd })
 }

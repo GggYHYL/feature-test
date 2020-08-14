@@ -4,15 +4,15 @@
         <el-form :model="ruleForm" :rules="rules" ref="ruleForm" label-width="50px">
             <el-form-item
                 label="名称"
-                prop="name"
+                prop="userName"
             >
-                <el-input type="name" v-model="ruleForm.name"></el-input>
+                <el-input type="userName" v-model="ruleForm.userName"></el-input>
             </el-form-item>
             <el-form-item
                 label="密码"
-                prop="pwd"
+                prop="userPwd"
             >
-                <el-input type="pwd" v-model="ruleForm.pwd"></el-input>
+                <el-input type="userPwd" v-model="ruleForm.userPwd"></el-input>
             </el-form-item>
             <el-form-item class="clearfix">
                 <el-button type="primary" @click="submit('ruleForm')">提交</el-button>
@@ -22,18 +22,18 @@
     </div>
 </template>
 <script>
-import {testApi} from "../request/api"
+import {getUserInfo} from "../request/api"
 export default {
     name: 'Login',
     data(){
         return ({
             ruleForm: {
-                name: '',
-                pwd: ''
+                userName: '',
+                userPwd: ''
             },
             rules: {
-                name:[{required: true,message:'请输入名称',trigger:'blur'}],
-                pwd:[{required: true,message:'请输入密码',trigger:'blur'}],
+                userName:[{required: true,message:'请输入名称',trigger:'blur'}],
+                userPwd:[{required: true,message:'请输入密码',trigger:'blur'}],
             }
         })
     },
@@ -41,8 +41,7 @@ export default {
         submit(formName){
             this.$refs[formName].validate((valid) => {
                 if(valid){
-                    console.log('111111111111');
-                    testApi()
+                    getUserInfo(this.ruleForm)
                 }else {
                     return null
                 }
