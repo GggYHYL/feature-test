@@ -11,12 +11,12 @@ Vue.use(ElementUI)
 
 // 守卫
 router.beforeEach((to, from, next) => {
-  if (window.sessionStorage.getItem('userToken')) {
+  if (localStorage.getItem('token')) {
     next()
   } else {
     if (to.name === 'sort') {
       next({
-        path: '/compress-img',
+        path: '/login',
         query: {
           id: 111111
         }
