@@ -14,10 +14,7 @@
             >
                 <el-input type="userPwd" v-model="ruleForm.userPwd"></el-input>
             </el-form-item>
-            <el-form-item class="clearfix">
-                <el-button type="primary" @click="submit('ruleForm')">提交</el-button>
-                <el-button class="cancel-btn" @click="cancel('ruleForm')">取消</el-button>
-            </el-form-item>
+            <el-button class="login-btn" type="primary" @click="submit('ruleForm')">登录</el-button>
         </el-form>
     </div>
 </template>
@@ -48,9 +45,6 @@ export default {
 
             })
         },
-        cancel(formName){
-            this.$refs[formName].resetFields()
-        }
     }
 }
 </script>
@@ -74,15 +68,10 @@ export default {
         padding:20px 0;
         background-color: #409EFF;
     }
-    .clearfix {
-        display: block;
-        content: "";
-        clear: both;
-    }
-    .cancel-btn {
-        float: right;
-    }
     .el-form {
       padding: 20px;
+    }
+    .login-btn{
+        width: 100%;
     }
 </style>
