@@ -14,16 +14,18 @@ router.beforeEach((to, from, next) => {
   if (localStorage.getItem('token')) {
     next()
   } else {
-    if (to.name === 'sort') {
-      next({
-        path: '/login',
-        query: {
-          id: 111111
-        }
-      })
-    } else {
-      next()
-    }
+    document.title = to.name
+    next()
+    // if (to.name === 'sort') {
+    //   next({
+    //     path: '/login',
+    //     query: {
+    //       id: 111111
+    //     }
+    //   })
+    // } else {
+    //   next()
+    // }
   }
 })
 
