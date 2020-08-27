@@ -1,6 +1,5 @@
 <template>
     <div class="login-container">
-        <div class="title">测试功能</div>
         <van-form @submit="onSubmit">
             <van-field
                 v-model="ruleForm.username"
@@ -18,9 +17,7 @@
                 :rules="[{ required: true, message: '请填写密码' }]"
             />
             <div>
-                <van-button round block type="info" native-type="submit">
-                提交
-                </van-button>
+                <van-button round block type="info" native-type="submit">提交</van-button>
             </div>
         </van-form>
     </div>
@@ -62,21 +59,13 @@ export default {
     .login-container {
         padding: 20px;
         box-sizing: border-box;
-        width: 100%;
-        border: 1px solid #dcdcdc;
         position: absolute;
-        margin: auto;
-        right: 0;
-        left: 0;
-        top:0;
-        bottom:0;
+        width: 100%;
+        top: 50%;
+        transform: translate(0, -50%);
     }
-    .title {
-        color:#fff;
-        font-size: 20px;
-        font-weight: bold;
-        text-align: center;
-        padding:20px 0;
-        background-color: #409EFF;
+
+    .van-cell.van-field {
+        margin-bottom: 20px;
     }
 </style>
