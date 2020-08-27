@@ -6,6 +6,7 @@ const routes = [
   {
     path: "/",
     name: "app",
+    redirect:'/login',
     component: () => import("@/App"),
     // 子路由对应的父组件中必须有 <router-view /> 才能显示子组件
     children:[
