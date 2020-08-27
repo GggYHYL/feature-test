@@ -14,13 +14,19 @@
             const canvas = this.$refs.canvas
             const ctx = canvas.getContext('2d')
             // 渐变
-            const _linerGradient = ctx.createLinearGradient(0,0,200,100)
-            _linerGradient.addColorStop(0.4,'red')
-            _linerGradient.addColorStop(0.7,'green')
-            _linerGradient.addColorStop(1,'yellow')
-            ctx.fillStyle = _linerGradient
-            ctx.fillRect(100,100,200,200)
+            // const _linerGradient = ctx.createLinearGradient(0,0,200,100)
+            // _linerGradient.addColorStop(0.4,'red')
+            // _linerGradient.addColorStop(0.7,'green')
+            // _linerGradient.addColorStop(1,'yellow')
+            // ctx.fillStyle = _linerGradient
+            // ctx.fillRect(100,100,200,200)
 
+            const _radioGradient = ctx.createRadialGradient(100,80,10,100,100,30)
+            _radioGradient.addColorStop(0.4, 'red')
+            _radioGradient.addColorStop(0.7, 'green')
+            _radioGradient.addColorStop(1, 'yellow')
+            ctx.fillStyle=_radioGradient;
+            ctx.fillRect(10,10,200,200);
 
             // 正方形
             // ctx.moveTo(100,100)

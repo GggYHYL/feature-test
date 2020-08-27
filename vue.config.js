@@ -1,4 +1,15 @@
+// 端口
 const port = 8080
+// 环境url配置
+const _serveUrl = {
+    // 开发
+    'dev': `https://emeah.ctwenhuayun.cn/`,
+    // 测试
+    'test': `https://emeah.ctwenhuayun.cn/`,
+    // 生产
+    'prod': `https://emeah.ctwenhuayun.cn/`,
+}
+
 module.exports = {
     publicPath: '/',
     lintOnSave: false,
@@ -12,13 +23,13 @@ module.exports = {
         proxy: {
             [process.env.VUE_APP_BASIC_API]: {
                 logLevel:"debug",
-                target: `http://gzstoreeme.ctwenhuayun.cn:8090/jiaozuo/web`,
+                // 服务器地址
+                target: _serveUrl[process.env.NODE_ENV],
                 // 在本地会创建一个虚拟服务端，然后发送请求的数据，并同时接收请求的数据，这样服务端和服务端进行数据的交互就不会有跨域问题
                 changeOrigin: true, 
                 ws: true,
                 pathRewrite: {
-                    //这里理解成用'/api'代替target里面的地址,比如我要调用'http://40.00.100.100:3002/user/add'，直接写'/api/user/add'即可
-                    ['^'+process.env.VUE_APP_BASIC_API]: '/' 
+                    ['^'+process.env.VUE_APP_BASIC_API]: '' 
                 }
             }
         }
