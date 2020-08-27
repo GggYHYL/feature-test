@@ -46,7 +46,7 @@ export default {
     },
 
     methods:{
-        submit(formName){
+        onSubmit(formName){
             this.$refs[formName].validate((valid) => {
                 if(valid){
                 }else {
