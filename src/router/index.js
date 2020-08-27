@@ -29,6 +29,11 @@ const routes = [
         name: "waterfall",
         component: () => import("@/views/waterfall"),
       },
+      {
+        path: "canvas",
+        name: "canvas",
+        component: () => import("@/views/canvas"),
+      },
       
     ]
   },
