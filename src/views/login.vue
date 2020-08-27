@@ -1,24 +1,34 @@
 <template>
     <div class="login-container">
         <div class="title">测试功能</div>
-        <el-form :model="ruleForm" :rules="rules" ref="ruleForm" label-width="50px">
-            <el-form-item
-                label="名称"
-                prop="userName"
-            >
-                <el-input type="userName" v-model="ruleForm.userName"></el-input>
-            </el-form-item>
-            <el-form-item
+        <van-form @submit="onSubmit">
+            <van-field
+                v-model="ruleForm.username"
+                name="用户名"
+                label="用户名"
+                placeholder="用户名"
+                :rules="[{ required: true, message: '请填写用户名' }]"
+            />
+            <van-field
+                v-model="ruleForm.userPwd"
+                type="password"
+                name="密码"
                 label="密码"
-                prop="userPwd"
-            >
-                <el-input type="userPwd" v-model="ruleForm.userPwd"></el-input>
-            </el-form-item>
-            <el-button class="login-btn" type="primary" @click="submit('ruleForm')">登录</el-button>
-        </el-form>
+                placeholder="密码"
+                :rules="[{ required: true, message: '请填写密码' }]"
+            />
+            <div>
+                <van-button round block type="info" native-type="submit">
+                提交
+                </van-button>
+            </div>
+        </van-form>
     </div>
 </template>
 <script>
+
+import { Form } from 'vant';
+
 import {getUserInfo} from "../request/api"
 export default {
     name: 'Login',
@@ -28,17 +38,17 @@ export default {
                 userName: '',
                 userPwd: ''
             },
-            rules: {
-                userName:[{required: true,message:'请输入名称',trigger:'blur'}],
-                userPwd:[{required: true,message:'请输入密码',trigger:'blur'}],
-            }
         })
     },
+
+    async created() {
+        console.log(await getUserInfo(this.ruleForm))
+    },
+
     methods:{
         submit(formName){
             this.$refs[formName].validate((valid) => {
                 if(valid){
-                    getUserInfo(this.ruleForm)
                 }else {
                     return null
                 }
@@ -50,8 +60,9 @@ export default {
 </script>
 <style lang="scss">
     .login-container {
-        height: 300px;
-        width: 300px;
+        padding: 20px;
+        box-sizing: border-box;
+        width: 100%;
         border: 1px solid #dcdcdc;
         position: absolute;
         margin: auto;
@@ -67,11 +78,5 @@ export default {
         text-align: center;
         padding:20px 0;
         background-color: #409EFF;
-    }
-    .el-form {
-      padding: 20px;
-    }
-    .login-btn{
-        width: 100%;
     }
 </style>
