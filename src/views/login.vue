@@ -23,9 +23,6 @@
     </div>
 </template>
 <script>
-
-import { Form } from 'vant';
-
 import {getUserInfo} from "../request/api"
 export default {
     name: 'Login',
