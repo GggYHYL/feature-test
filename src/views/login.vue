@@ -3,17 +3,17 @@
         <van-form @submit="onSubmit">
             <van-field
                 v-model="ruleForm.username"
-                name="用户名"
+                required
                 label="用户名"
-                placeholder="请输入用户名"
+                placeholder="用户名"
                 :rules="[{ required: true, message: '请输入用户名' }]"
             />
             <van-field
                 v-model="ruleForm.userPwd"
+                required
                 type="password"
-                name="密码"
                 label="密码"
-                placeholder="请输入密码"
+                placeholder="密码"
                 :rules="[{ required: true, message: '请输入密码' }]"
             />
             <div>
@@ -34,14 +34,11 @@ export default {
             },
         })
     },
-
-    async created() {
-        console.log(await getUserInfo(this.ruleForm))
-    },
-
     methods:{
-        onSubmit(){
-        },
+        async onSubmit(){
+            const result = await getUserInfo(this.ruleForm)
+            localStorage.setItem('token', '234234234')
+        },  
     }
 }
 </script>

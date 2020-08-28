@@ -3,11 +3,11 @@ const port = 8080
 // 环境url配置
 const _serveUrl = {
     // 开发
-    'dev': `https://emeah.ctwenhuayun.cn/`,
+    development: `https://emeah.ctwenhuayun.cn/`,
     // 测试
-    'test': `https://emeah.ctwenhuayun.cn/`,
+    test: `https://emeah.ctwenhuayun.cn/`,
     // 生产
-    'prod': `https://emeah.ctwenhuayun.cn/`,
+    production: `https://emeah.ctwenhuayun.cn/`,
 }
 
 module.exports = {
