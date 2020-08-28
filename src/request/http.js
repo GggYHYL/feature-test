@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { Toast } from 'vant'
 // 基本路径
 axios.defaults.baseURL = process.env.VUE_APP_BASIC_API;
 // 超时时间
@@ -37,7 +38,7 @@ axios.interceptors.response.use(
                     break;             
                 // 403 token过期                
                 // 登录过期对用户进行提示                
-                // 清除本地token和清空vuex中token对象                
+                // 清除本地token         
                 // 跳转登录页面                
                 case 403:                     
                     Toast({                        
