@@ -40,7 +40,7 @@ module.exports = {
         config
           .plugin('html')
           .tap(args => {
-            args[0].title= '项目名称'
+            args[0].title= '设置项目名称'
             return args
           })
     }
