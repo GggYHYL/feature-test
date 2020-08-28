@@ -16,9 +16,7 @@
                 placeholder="密码"
                 :rules="[{ required: true, message: '请输入密码' }]"
             />
-            <div>
-                <van-button round block type="info" native-type="submit">提交</van-button>
-            </div>
+            <van-button round block type="info" native-type="submit">提交</van-button>
         </van-form>
     </div>
 </template>
